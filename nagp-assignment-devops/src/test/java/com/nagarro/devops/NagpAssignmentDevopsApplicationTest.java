@@ -5,7 +5,7 @@ import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
-public class NagpAssignmentDevopsApplicationTests {
+public class NagpAssignmentDevopsApplicationTest {
 
 	@Test
 	public void testSample() {
