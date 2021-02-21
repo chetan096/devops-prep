@@ -1,0 +1,13 @@
+pipeline {
+   tools{
+      maven 'Maven3'
+	    jdk 'Java'
+   }
+   stages {
+     stage('Checkout'){
+	     steps {
+	      checkout scm
+	     } 
+     }
+   }
+}
