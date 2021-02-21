@@ -16,5 +16,12 @@ pipeline {
 		 bat 'mvn -f nagp-assignment-devops/pom.xml test'
 	   }
 	 }
+	 stage('Sonar Analysis'){
+	    steps {
+		   withSonarQubeEnv('Test_Sonar') {
+                  bat 'mvn -f nagp-assignment-devops/pom.xml sonar:sonar'
+                }
+		}
+	 }
    }
 }
