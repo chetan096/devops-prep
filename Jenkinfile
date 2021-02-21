@@ -10,9 +10,10 @@ pipeline {
 	      checkout scm
 	     } 
      }
-	 stage('Build'){
+	 stage('Junits'){
 	   steps {
-	     echo 'Building the project again'
+	     echo 'Run unit test cases'
+		 bat 'mvn -f nagp-assignment-devops/pom.xml test'
 	   }
 	 }
    }
