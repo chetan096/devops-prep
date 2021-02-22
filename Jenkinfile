@@ -56,7 +56,7 @@ pipeline {
    
    post {
       always {
-	    junit nagp-assignment-devops/target/surefire-reports/*.xml
+	    junit 'nagp-assignment-devops/target/surefire-reports/*.xml'
 	  }
 	  failure {
 	    emailext attachLog: true, body: 'Build is fixed', mimeType: 'text/html', subject: 'build success', to: 'chetan.mahajan@nagarro.com'
