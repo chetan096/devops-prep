@@ -33,6 +33,20 @@ pipeline {
 		   bat 'docker build -t 3147181/nes-product:%BUILD_NUMBER% nagp-assignment-devops'
 		}
 	 }
+	 stage('Pre Container Check'){
+	    steps{
+		   bat """
+		    for /f %%i in ('docker ps -qf "name=^nes-product"') do set containerId=%%i
+             echo %containerId%
+			If "%containerId%" == "" (
+				echo "No Container running"
+			) ELSE (
+				docker stop %ContainerId%
+				docker rm -f %ContainerId%
+				)'
+				"""
+		}
+	 }
 	 stage('Run Docker Container'){
 	    steps{
 	       bat 'docker run -d -p 8082:8081 --name nes-product 3147181/nes-product:%BUILD_NUMBER%'
