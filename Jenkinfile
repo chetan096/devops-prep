@@ -29,10 +29,14 @@ pipeline {
 		}
 	 }
 	 stage('Build Docker Image'){
-	   bat 'docker build -t 3147181/nes-product:%BUILD_NUMBER% nagp-assignment-devops'
+	    steps{
+		   bat 'docker build -t 3147181/nes-product:%BUILD_NUMBER% nagp-assignment-devops'
+		}
 	 }
 	 stage('Run Docker Container'){
-	   bat 'docker run -d -p 8082:8081 --name nes-product 3147181/nes-product:%BUILD_NUMBER%'
+	    steps{
+	       bat 'docker run -d -p 8082:8081 --name nes-product 3147181/nes-product:%BUILD_NUMBER%'
+	    }
 	 }
    }
 }
